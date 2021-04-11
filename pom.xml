@@ -9,7 +9,7 @@
   </parent>
   <groupId>com.example</groupId>
   <artifactId>devops</artifactId>
-  <version>1.3.2</version>
+  <version>1.3.3-SNAPSHOT</version>
   <packaging>war</packaging>
   <name>devops</name>
   <description>Devops Demo project for 'Packtpub DevOps with GITFlow Jenkins Artifactory Sonar ELK JIRA [Video]'</description>
@@ -17,7 +17,7 @@
     <connection>scm:git:git@github.com:djonko/devOps_exercice_packpubDevops.git</connection>
     <developerConnection>scm:git:git@github.com:djonko/devOps_exercice_packpubDevops.git</developerConnection>
     <url>git@github.com:djonko/devOps_exercice_packpubDevops.git</url>
-    <tag>v1.3.2</tag>
+    <tag>HEAD</tag>
   </scm>
   <distributionManagement>
     <repository>
