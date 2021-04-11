@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.springframework.boot</groupId>
@@ -10,7 +9,7 @@
   </parent>
   <groupId>com.example</groupId>
   <artifactId>devops</artifactId>
-  <version>1.2.0-SNAPSHOT</version>
+  <version>1.2.0</version>
   <packaging>war</packaging>
   <name>devops</name>
   <description>Devops Demo project for 'Packtpub DevOps with GITFlow Jenkins Artifactory Sonar ELK JIRA [Video]'</description>
@@ -18,7 +17,7 @@
     <connection>scm:git:git@github.com:djonko/devOps_exercice_packpubDevops.git</connection>
     <developerConnection>scm:git:git@github.com:djonko/devOps_exercice_packpubDevops.git</developerConnection>
     <url>git@github.com:djonko/devOps_exercice_packpubDevops.git</url>
-    <tag>HEAD</tag>
+    <tag>v1.2.0</tag>
   </scm>
   <distributionManagement>
     <repository>
