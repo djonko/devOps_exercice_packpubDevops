@@ -16,4 +16,12 @@ public class WelcomeController {
         model.addAttribute("course", "Devops");
         return "index";
     }
+    @RequestMapping("/wlcome_error")
+    public String welcomeToError(Model model) {
+        logger.info("Processing index request");
+        model.addAttribute("course", "Devops");
+        if(true)
+            throw new RuntimeException("sfd");
+        return "index";
+    }
 }

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <springProfile name="dev">
+        <appender name="stash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+            <destination>logstash:5009</destination>
+            <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+        </appender>
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %c{1} - %msg%n</pattern>
+            </encoder>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="STDOUT"/>
+            <appender-ref ref="stash"/>
+        </root>
+    </springProfile>
+    <springProfile name="test">
+        <appender name="stash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+            <destination>logstash:5010</destination>
+            <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+        </appender>
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %c{1} - %msg%n</pattern>
+            </encoder>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="STDOUT"/>
+            <appender-ref ref="stash"/>
+        </root>
+    </springProfile>
+    <springProfile name="prod">
+        <appender name="RollingFile" class="ch.qos.logback.core.rolling.RollingFileAppender">
+            <file>${CATALINA_HOME}/logs/devops.log</file>
+            <encoder>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %c{1} - %msg%n</pattern>
+            </encoder>
+            <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+                <fileNamePattern>${CATALINA_HOME}/logs/devops-%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+                <maxFileSize>1MB</maxFileSize>
+                <maxHistory>30</maxHistory>
+                <totalSizeCap>10MB</totalSizeCap>
+                <cleanHistoryOnStart>true</cleanHistoryOnStart>
+            </rollingPolicy>
+        </appender>
+        <appender name="stash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+            <destination>logstash:5011</destination>
+            <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+        </appender>
+        <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+            <encoder>
+                <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %c{1} - %msg%n</pattern>
+            </encoder>
+        </appender>
+        <root level="INFO">
+            <appender-ref ref="RollingFile"/>
+            <appender-ref ref="STDOUT"/>
+            <appender-ref ref="stash"/>
+        </root>
+    </springProfile>
+</configuration>
