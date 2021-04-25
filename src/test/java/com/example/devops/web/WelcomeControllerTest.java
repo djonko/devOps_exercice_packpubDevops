@@ -37,4 +37,5 @@ class WelcomeControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(model().attribute("course", containsString("Devops")));
     }
+
 }
