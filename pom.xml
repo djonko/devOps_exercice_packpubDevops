@@ -35,6 +35,10 @@
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.sourceOutputEncoding>UTF-8</project.build.sourceOutputEncoding>
+    <sonar.coverage.exclusions>
+      **/*ServletInitializer.java,
+      **/*DevopsApplication.java
+    </sonar.coverage.exclusions>
   </properties>
   <dependencies>
     <dependency>
