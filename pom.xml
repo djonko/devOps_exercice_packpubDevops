@@ -39,6 +39,8 @@
       **/*ServletInitializer.java,
       **/*DevopsApplication.java
     </sonar.coverage.exclusions>
+    <sonar.host.url>http://local.sonarqube:9000</sonar.host.url>
+    <sonar.login>8a95af18d9fef0a20aaa0badc6eedf907519332e</sonar.login>
   </properties>
   <dependencies>
     <dependency>
