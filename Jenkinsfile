@@ -30,13 +30,15 @@ node {
       }
    }
    stage('Deploy') {
-        sh '''
-            response=$(curl -s -o /dev/null -w "%{http_code}\n" -u ${TM_USER}:${TM_PWD} -T target/**.war "http://tomcat9:8080/manager/text/deploy?path=/devops&update=true")
-            if [ "$response" != "200" ]
-            then
-             exit 1
-            fi
-        '''
+        withCredentials([usernamePassword(credentialsId: 'tomcat_manager', usernameVariable: 'TM_USER', passwordVariable: 'TM_PWD')]) {
+            sh '''
+                response=$(curl -s -o /dev/null -w "%{http_code}\n" -u ${TM_USER}:${TM_PWD} -T target/**.war "http://tomcat9:8080/manager/text/deploy?path=/devops&update=true")
+                if [ "$response" != "200" ]
+                then
+                 exit 1
+                fi
+            '''
+        }
    }
    stage("Smoke Test"){
        sh "curl --retry-delay 10 --retry 5 http://tomcat9:8080/devops"
